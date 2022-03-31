@@ -13,50 +13,48 @@
         <h2>KOKOBOT</h2>
       </div>
 
-      <!--양쪽으로 밀어주는 역할-->
       <v-spacer></v-spacer>
+      <!--양쪽으로 밀어주는 역할-->
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
       </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-apps</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+      <v-icon>mdi-open-in-new</v-icon>
     </v-app-bar>
 
-    <v-main>
-      <v-container class="grey lighten-5">
-        <v-row no-gutters>
-          <v-col cols="12" sm="2" md="2" id="sidemenu">
-            <SideMenu />
-          </v-col>
-          <v-col cols="12" sm="9" md="9" id="sidemenu">
-            <MainCont />
-          </v-col>
-        </v-row>
-      </v-container>
-
-      <div id="footer">
-        <FooterBot />
+    <v-main class="grey lighten-5 overflow-auto">
+      <div id="sidemenu">
+        <SideMenu />
+      </div>
+      <div id="contentBox">
+        <FarmBasicInfo />
       </div>
     </v-main>
+
+    <div id="footer">
+      <FooterBot />
+    </div>
   </v-app>
 </template>
 
 <script>
 import SideMenu from "./components/SideMenu";
-import MainCont from "./components/MainCont";
 import FooterBot from "./components/FooterBot";
+import FarmBasicInfo from "./components/farm/FarmBasicInfo";
 
 export default {
   name: "App",
 
   components: {
     SideMenu,
-    MainCont,
     FooterBot,
+    FarmBasicInfo,
   },
 
   data: () => ({
@@ -66,12 +64,25 @@ export default {
 </script>
 
 <style>
+#app {
+  overflow: auto;
+}
 #sidemenu {
   margin-right: 10px;
+  position: absolute;
+  z-index: 100;
+  left: 2px;
+  top: 6px;
+}
+
+#contentBox {
+  margin-top: 6px;
+  margin-bottom: 104px;
+  margin-left: 310px;
 }
 
 #footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
 }

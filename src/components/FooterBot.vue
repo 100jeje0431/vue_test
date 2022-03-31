@@ -23,7 +23,15 @@ export default {
   name: "FooterBot",
 
   data: () => ({
-    links: ["Home", "About Us", "Team", "Services", "Blog", "Contact Us"],
+    links: [
+      "농장현황대쉬보드",
+      "농장관리",
+      "거래관리",
+      "이력제신고",
+      "HACCP관리",
+      "보고서출력",
+      "기초정보등록",
+    ],
   }),
 };
 </script>
